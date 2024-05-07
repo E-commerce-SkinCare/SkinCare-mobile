@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:second_project/screens/registration.dart';
-import 'package:second_project/screens/signup_screen.dart';
 
 class SkinCare extends StatelessWidget {
   const SkinCare();
@@ -64,8 +63,7 @@ class SkinCare extends StatelessWidget {
                   height: 45,
                   color: Colors.white,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignIn()));
+                    Navigator.of(context).pushReplacementNamed("signIn");
                   },
                   shape: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(18)),
