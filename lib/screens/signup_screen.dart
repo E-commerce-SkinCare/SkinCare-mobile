@@ -20,8 +20,7 @@ class _SignInState extends State<SignIn> {
   SignIn() async {
     isloading = true;
     setState(() {});
-    var response = await _crud.PostRequest(
-        "https://beglowy.000webhostapp.com",
+    var response = await _crud.PostRequest("https://beglowy.000webhostapp.com",
         {"email": email.text, "password": Password.text});
     if (response["status"] == "success") {
       Navigator.of(context).pushReplacementNamed("Home");
@@ -35,9 +34,9 @@ class _SignInState extends State<SignIn> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          body: ListView(children: [
-        Form(
-          key: formState,
+          body: Form(
+        key: formState,
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -144,7 +143,7 @@ class _SignInState extends State<SignIn> {
             ],
           ),
         ),
-      ])),
+      )),
     );
   }
 }

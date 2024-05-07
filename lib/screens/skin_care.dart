@@ -63,7 +63,7 @@ class SkinCare extends StatelessWidget {
                   height: 45,
                   color: Colors.white,
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed("signIn");
+                    Navigator.of(context).pushReplacementNamed("/signIn");
                   },
                   shape: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(18)),
