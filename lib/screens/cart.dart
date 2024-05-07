@@ -5,6 +5,7 @@ import 'package:second_project/components/cart_item.dart';
 import 'package:second_project/components/item.dart';
 import 'package:second_project/models/product.dart';
 import 'package:second_project/screens/home.dart';
+import 'package:second_project/screens/profile.dart';
 
 class cart extends StatelessWidget {
   const cart({super.key});
@@ -29,9 +30,10 @@ class cart extends StatelessWidget {
               IconButton(
                 icon: Image.asset('ca.png'),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
                     return Home();
-                  }));
+                  })));
                 },
               ),
               Spacer(
@@ -40,24 +42,29 @@ class cart extends StatelessWidget {
               IconButton(
                 icon: Image.asset('hh.png'),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
                     return cart();
-                  }));
+                  })));
                 },
               ),
               Spacer(
                 flex: 1,
               ),
               IconButton(
-                icon: Image.asset('pr.png'),
-                onPressed: () {},
-              ),
+                  icon: Image.asset('pr.png'),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AccountProfile()));
+                  }),
               Spacer(
                 flex: 1,
               ),
             ],
           ),
-        ) ,
+        ),
         body: ListView(children: [
           ListView.builder(
             shrinkWrap: true,

@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:second_project/components/item.dart';
 import 'package:second_project/models/product.dart';
 import 'package:second_project/screens/cart.dart';
+import 'package:second_project/screens/profile.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -50,9 +51,13 @@ class Home extends StatelessWidget {
                 flex: 1,
               ),
               IconButton(
-                icon: Image.asset('pr.png'),
-                onPressed: () {},
-              ),
+                  icon: Image.asset('pr.png'),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AccountProfile()));
+                  }),
               Spacer(
                 flex: 1,
               ),
