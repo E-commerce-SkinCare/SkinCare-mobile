@@ -5,14 +5,21 @@ import 'package:second_project/components/item.dart';
 import 'package:second_project/models/product.dart';
 import 'package:second_project/screens/cart.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   final List<Product> products = const [
     Product(image: '4444.jpg', name: 'name of product', price: 'price : X\$'),
   ];
+
   final one = const Product(
       image: '4444.jpg', name: 'name of product', price: 'price : X\$');
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

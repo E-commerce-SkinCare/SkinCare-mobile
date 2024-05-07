@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:second_project/components/cart_item.dart';
-import 'package:second_project/components/item.dart';
+
 import 'package:second_project/models/product.dart';
 import 'package:second_project/screens/home.dart';
 
