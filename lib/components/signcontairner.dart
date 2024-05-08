@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 
 class textformSign extends StatelessWidget {
   final TextEditingController myController;
-  const textformSign({super.key, required this.myController});
+  final String? Function(String?)valid;
+  const textformSign({super.key, required this.myController,required this.valid});
   
 
   @override
   Widget build(BuildContext context) {
     return Container(
         child: TextFormField(
+          validator: valid,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
