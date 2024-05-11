@@ -133,12 +133,10 @@ class CartItem extends StatelessWidget {
   final Product product;
   final VoidCallback onRemoveFromCart;
 
-
   const CartItem({
     Key? key,
     required this.product,
     required this.onRemoveFromCart,
-
   }) : super(key: key);
 
   @override
