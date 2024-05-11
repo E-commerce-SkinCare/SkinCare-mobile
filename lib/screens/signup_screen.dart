@@ -22,7 +22,7 @@ class _SignInState extends State<SignIn> {
       });
 
       var response = await _crud.postRequest(
-          "https://beglowy.000webhostapp.com/api/login",
+          "http://192.168.137.1:8101/api/login",
           {"email": email, "password": password});
 
       setState(() {
@@ -30,7 +30,7 @@ class _SignInState extends State<SignIn> {
       });
 
       if (response["status"] == "success") {
-        // Navigator.of(context).pushNamed("/home");
+        Navigator.of(context).pushNamed("/home");
         print("YesNoo");
       } else {
         print(response);
