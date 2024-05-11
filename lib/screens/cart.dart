@@ -79,7 +79,7 @@
 //     );
 //   }
 // }
-import 'dart:js';
+// import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -99,7 +99,7 @@ class Cart extends StatelessWidget {
   ];
 
   Future<void> removeFromCart(int productId) async {
-    var url = Uri.parse('https://beglowy.000webhostapp.com/api/cart/');
+    var url = Uri.parse('http://192.168.1.4:8101/api/cart/');
     var userId = 'user_id';
 
     var response = await http.post(

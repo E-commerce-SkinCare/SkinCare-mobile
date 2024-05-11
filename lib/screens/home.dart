@@ -250,7 +250,7 @@ class _HomeState extends State<Home> {
   }
 
   Future<List<Product>> fetchProducts() async {
-    final response = await http.get(Uri.parse('https://example.com/products'));
+    final response = await http.get(Uri.parse('http://192.168.1.4:8101/api/products'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body)['data'];
@@ -260,7 +260,7 @@ class _HomeState extends State<Home> {
           id: productData['id'],
           name: productData['name'],
           description: productData['description'],
-          image: productData['image'],
+          image: productData['img'],
           price: productData['price'],
         ));
       });

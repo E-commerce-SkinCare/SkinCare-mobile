@@ -163,7 +163,7 @@ class _SignUpAppState extends State<SignUpApp> {
       });
 
       var response =
-          await _crud.postRequest("http://192.168.137.1:8101/api/register", {
+          await _crud.postRequest("http://192.168.1.4:8101/api/register", {
         "name": username.text,
         "email": email.text,
         "password": password.text,
