@@ -228,6 +228,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:second_project/components/cart_api.dart';
 import 'package:second_project/components/home_item.dart';
 import 'package:second_project/components/item.dart';
 import 'package:second_project/models/product.dart';
@@ -251,7 +252,8 @@ class _HomeState extends State<Home> {
   }
 
   Future<List<Product>> fetchProducts() async {
-    final response = await http.get(Uri.parse('http://192.168.1.4:8101/api/products'));
+    final response =
+        await http.get(Uri.parse('http://192.168.1.4:8101/api/products'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body)['data'];
@@ -284,9 +286,16 @@ class _HomeState extends State<Home> {
             return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                return Item(product: snapshot.data![index], onAddToCart: () { 
-                
-                },);
+                return Item(
+                  product: snapshot.data![index],
+                  onAddToCart: () {
+                    AddToCartRequest(
+                      userId: 1,
+                      productId: 2,
+                      quantity: 1,
+                    );
+                  },
+                );
               },
             );
           } else if (snapshot.hasError) {
