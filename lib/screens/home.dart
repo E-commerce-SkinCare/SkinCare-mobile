@@ -229,6 +229,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:second_project/components/home_item.dart';
+import 'package:second_project/components/item.dart';
 import 'package:second_project/models/product.dart';
 import 'package:second_project/screens/cart.dart';
 import 'package:second_project/screens/profile.dart';
@@ -283,7 +284,9 @@ class _HomeState extends State<Home> {
             return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                return Item(product: snapshot.data![index]);
+                return Item(product: snapshot.data![index], onAddToCart: () { 
+                
+                },);
               },
             );
           } else if (snapshot.hasError) {
