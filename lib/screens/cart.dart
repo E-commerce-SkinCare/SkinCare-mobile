@@ -90,7 +90,12 @@ class Cart extends StatelessWidget {
   const Cart({Key? key}) : super(key: key);
 
   final List<Product> products = const [
-    Product(image: '4444.jpg', name: 'name of product', price: 'price : X\$'),
+    Product(
+        image: '4444.jpg',
+        name: 'name of product',
+        price: 'price : X\$',
+        id: 1,
+        description: ""),
   ];
 
   Future<void> removeFromCart(int productId) async {
