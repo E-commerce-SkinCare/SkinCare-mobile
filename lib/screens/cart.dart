@@ -95,7 +95,7 @@ class Cart extends StatelessWidget {
 
   Future<void> removeFromCart(int productId) async {
     var url = Uri.parse('https://beglowy.000webhostapp.com/api/cart/');
-    var userId = USER_ID;
+    var userId = 'user_id';
 
     var response = await http.post(
       url,

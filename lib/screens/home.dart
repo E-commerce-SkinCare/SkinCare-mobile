@@ -187,7 +187,7 @@ class Home extends StatelessWidget {
 
   Future<void> addToCart(int productId, int quantity) async {
     var url = Uri.parse('URL_API/add_to_cart');
-    var userId = user_id;
+    var userId = 'user_id';
 
     var response = await http.post(
       url,
