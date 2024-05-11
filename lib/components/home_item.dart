@@ -4,9 +4,8 @@ import 'package:second_project/models/product.dart';
 
 class Item extends StatelessWidget {
   final Product product;
-  final Function() onAddToCart;
 
-  const Item({required this.product, required this.onAddToCart});
+  const Item({required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,10 @@ class Item extends StatelessWidget {
         subtitle: Text(product.price),
         trailing: IconButton(
           icon: Icon(Icons.add),
-          onPressed: onAddToCart,
+          onPressed: () {
+            // تنفيذ الدالة التي تقوم بإضافة المنتج إلى السلة
+            // يمكن تنفيذ هذه الدالة باستخدام Provider أو توصيلها مباشرة بـ API
+          },
         ),
       ),
     );

@@ -32,7 +32,7 @@ class AccountProfile extends StatelessWidget {
               icon: Image.asset('hh.png'),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: ((context) {
-                  return cart();
+                  return Cart();
                 })));
               },
             ),
