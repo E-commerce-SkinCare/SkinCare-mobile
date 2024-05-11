@@ -162,11 +162,12 @@ class _SignUpAppState extends State<SignUpApp> {
         isLoading = true;
       });
 
-      var response = await _crud.postRequest(
-          "https://beglowy.000webhostapp.com/api/register", {
-        "username": username.text,
+      var response =
+          await _crud.postRequest("http://192.168.137.1:8101/api/register", {
+        "name": username.text,
         "email": email.text,
-        "password": password.text
+        "password": password.text,
+        "password_confirmation": password.text,
       });
 
       setState(() {
@@ -174,7 +175,7 @@ class _SignUpAppState extends State<SignUpApp> {
       });
 
       if (response["status"] == "success") {
-        // Navigator.of(context).pushNamed("/home");
+        Navigator.of(context).pushNamed("/home");
         print("Yessss");
       } else {
         print(response["status"]);
