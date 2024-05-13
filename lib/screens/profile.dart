@@ -4,6 +4,7 @@ import 'package:second_project/screens/cart.dart';
 import 'package:second_project/screens/home.dart';
 
 class AccountProfile extends StatelessWidget {
+  
   const AccountProfile({super.key});
   // get bottomNavigationBar => null;
 

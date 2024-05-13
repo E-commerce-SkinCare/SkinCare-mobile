@@ -226,10 +226,12 @@
 //   }
 // }
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:second_project/components/api/endpoints.dart';
 import 'package:second_project/components/cart_api.dart';
+import 'package:second_project/components/constants/constants.dart';
 import 'package:second_project/components/home_item.dart';
 import 'package:second_project/components/item.dart';
 import 'package:second_project/models/product.dart';
@@ -273,6 +275,42 @@ class _HomeState extends State<Home> {
     }
   }
 
+  Future<void> addProductToCart({
+    required BuildContext context,
+    required int productId,
+    required String quantity,
+    required String userId,
+  }) async {
+    final response =
+        await http.post(Uri.parse('${EndPoints.baseUrl}cart'), body: {
+      'product_id': productId.toString(),
+      'quantity': quantity,
+      'userId': userId,
+    });
+
+    if (response.statusCode == 200) {
+      var responseData = json.decode(response.body);
+      log(response.toString());
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.green,
+          content: Text(responseData['message'] ?? 'Added success')));
+
+      // List<dynamic> data = json.decode(response.body)['data'];
+      // List<Product> products = [];
+      // data.forEach((productData) {
+      // products.add(Product(
+      //   id: productData['id'],
+      //   name: productData['name'],
+      //   description: productData['description'],
+      //   image: productData['img'],
+      //   price: productData['price'],
+      // ));
+      // });
+    } else {
+      throw Exception('Failed to load products');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -289,11 +327,17 @@ class _HomeState extends State<Home> {
                 return Item(
                   product: snapshot.data![index],
                   onAddToCart: () {
-                    AddToCartRequest(
-                      userId: 1,
-                      productId: 2,
-                      quantity: 1,
+                    addProductToCart(
+                      context: context,
+                      productId: snapshot.data![index].id,
+                      quantity: '1',
+                      userId: userId.toString(),
                     );
+                    // AddToCartRequest(
+                    //   userId: 1,
+                    //   productId: 2,
+                    //   quantity: 1,
+                    // );
                   },
                 );
               },

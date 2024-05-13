@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:second_project/components/api/endpoints.dart';
+import 'package:second_project/components/constants/constants.dart';
 import 'package:second_project/components/crud.dart';
 import 'package:second_project/components/valid.dart';
 
@@ -12,6 +15,7 @@ class _SignInState extends State<SignIn> {
   GlobalKey<FormState> formState = GlobalKey();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  // String userId = '';
 
   Crud _crud = Crud();
   bool isLoading = false;
@@ -30,7 +34,12 @@ class _SignInState extends State<SignIn> {
       });
 
       if (response["status"] == "success") {
-        Navigator.of(context).pushNamed("/home");
+        log(response.toString());
+        userId = response['user']['id'].toString();
+        log(userId);
+        Navigator.of(context).pushNamed(
+          "/home",
+        );
         print("YesNoo");
       } else {
         print(response);
