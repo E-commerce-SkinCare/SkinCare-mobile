@@ -112,7 +112,7 @@ class Cart extends StatelessWidget {
             return Center(
               child: CircularProgressIndicator(),
             );
-          },
+          }, 
         ),
       ),
     );
