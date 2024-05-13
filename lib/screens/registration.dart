@@ -138,6 +138,7 @@
 // // //   } //widget
 // // // } //class
 import 'package:flutter/material.dart';
+import 'package:second_project/components/api/endpoints.dart';
 import 'package:second_project/components/crud.dart';
 import 'package:second_project/components/valid.dart';
 
@@ -162,8 +163,7 @@ class _SignUpAppState extends State<SignUpApp> {
         isLoading = true;
       });
 
-      var response =
-          await _crud.postRequest("http://192.168.1.4:8101/api/register", {
+      var response = await _crud.postRequest("${EndPoints.baseUrl}register", {
         "name": username.text,
         "email": email.text,
         "password": password.text,

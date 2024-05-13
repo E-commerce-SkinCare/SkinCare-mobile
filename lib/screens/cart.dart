@@ -83,6 +83,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:second_project/components/api/endpoints.dart';
 import 'package:second_project/components/cart_item.dart';
 import 'package:second_project/models/product.dart';
 
@@ -99,7 +100,7 @@ class Cart extends StatelessWidget {
   ];
 
   Future<void> removeFromCart(int productId) async {
-    var url = Uri.parse('http://192.168.1.4:8101/api/cart/');
+    var url = Uri.parse('${EndPoints.baseUrl}cart/');
     var userId = 'user_id';
 
     var response = await http.post(

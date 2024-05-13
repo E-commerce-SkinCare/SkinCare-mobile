@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:second_project/components/api/endpoints.dart';
 import 'package:second_project/components/crud.dart';
 import 'package:second_project/components/valid.dart';
 
@@ -22,8 +23,7 @@ class _SignInState extends State<SignIn> {
       });
 
       var response = await _crud.postRequest(
-          "http://192.168.1.4:8101/api/login",
-          {"email": email, "password": password});
+          "${EndPoints.baseUrl}login", {"email": email, "password": password});
 
       setState(() {
         isLoading = false;

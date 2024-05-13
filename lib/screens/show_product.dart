@@ -136,7 +136,7 @@ class _ShowProductState extends State<ShowProduct> {
 
   Future<Map<String, dynamic>> fetchProductDetails() async {
     final response = await http
-        .get(Uri.parse('https://example.com/api/products/product_id'));
+        .get(Uri.parse('https://192.168.1.2/api/products/product_id'));
 
     if (response.statusCode == 200) {
       return json.decode(response.body);
