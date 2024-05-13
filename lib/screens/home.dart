@@ -285,12 +285,13 @@ class _HomeState extends State<Home> {
         await http.post(Uri.parse('${EndPoints.baseUrl}cart'), body: {
       'product_id': productId.toString(),
       'quantity': quantity,
-      'userId': userId,
+      'user_id': userId,
     });
 
     if (response.statusCode == 200) {
       var responseData = json.decode(response.body);
       log(response.toString());
+      log('product with id ${productId} added to cart');
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.green,
           content: Text(responseData['message'] ?? 'Added success')));

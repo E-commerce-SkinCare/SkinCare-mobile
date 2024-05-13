@@ -153,7 +153,7 @@ class CartItem extends StatelessWidget {
           Container(
             width: 100,
             height: 100,
-            child: Image.asset(
+            child: Image.network(
               product.image,
               fit: BoxFit.cover,
             ),
